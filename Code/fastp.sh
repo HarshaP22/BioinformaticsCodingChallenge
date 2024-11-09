@@ -1,6 +1,5 @@
 #!/bin/bash
 
-#out=$2
 now=`date`
 
 while read inp
@@ -18,8 +17,8 @@ do
 		(
 		echo "starts $now"
 
-		./fastp -i $fastq1 -I $fastq2 -o $out1 -O $out2
+		$1/fastp -i $fastq1 -I $fastq2 -o $out1 -O $out2
 
 		echo "ends $now"
 		) 1>>$out$bn".pipeline.log" 2>>$out$bn".pipeline.log" 
-done < $1
+done < $2
